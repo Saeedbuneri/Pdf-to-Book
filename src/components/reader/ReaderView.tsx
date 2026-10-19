@@ -92,9 +92,14 @@ export const ReaderView: React.FC<ReaderViewProps> = ({ book, onBackToLibrary })
     });
   }, []);
 
-  // Set document data-theme
+  // Set document data-theme and dark class
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', settings.theme);
+    if (settings.theme === 'dark' || settings.theme === 'midnight') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
   }, [settings.theme]);
 
   // Load sections and initial progress

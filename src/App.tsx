@@ -35,10 +35,15 @@ export function App() {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
+    if (theme === 'dark' || theme === 'midnight') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
   }, [theme]);
 
   const toggleTheme = () => {
-    const nextTheme = theme === 'paper' ? 'dark' : theme === 'dark' ? 'sepia' : 'paper';
+    const nextTheme = theme === 'dark' || theme === 'midnight' ? 'paper' : 'dark';
     setTheme(nextTheme);
     if (typeof window !== 'undefined') {
       const saved = window.localStorage.getItem('smart_reader_settings');
