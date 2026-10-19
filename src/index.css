@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-serif: 'Newsreader', Georgia, Cambria, 'Times New Roman', Times, serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', Menlo, Monaco, Consolas, monospace;
+
+    /* Coral Aesthetic Accent */
+    --coral-primary: #ff6934;
+    --coral-hover: #ff551b;
+    --coral-subtle: rgba(255, 105, 52, 0.12);
+    --coral-glow: rgba(255, 105, 52, 0.25);
+
+    /* Default Clean Light / Cozy Aesthetic (Matching Reference Screenshot) */
+    --app-bg: #f8f7f5;
+    --app-surface: #ffffff;
+    --app-surface-hover: #f3f2ee;
+    --app-border: #eae8e3;
+    --app-text: #1a1a1e;
+    --app-text-muted: #737380;
+    --app-continue-card: #16171b;
+
+    /* Reader Theme defaults */
+    --reader-bg: #faf8f5;
+    --reader-surface: #ffffff;
+    --reader-surface-hover: #f4f2ec;
+    --reader-border: #e8e5dc;
+    --reader-text: #2a2826;
+    --reader-text-muted: #6e6b66;
+    --reader-heading: #141312;
+    --reader-accent: #ff6934;
+    --reader-accent-light: rgba(255, 105, 52, 0.12);
+    --reader-code-bg: #f4f1ea;
+  }
+
+  /* Paper / Clean Warm Cream Theme */
+  [data-theme="paper"] {
+    --app-bg: #f8f7f5;
+    --app-surface: #ffffff;
+    --app-surface-hover: #f3f2ee;
+    --app-border: #eae8e3;
+    --app-text: #1a1a1e;
+    --app-text-muted: #737380;
+    --app-continue-card: #16171b;
+
+    --reader-bg: #faf8f5;
+    --reader-surface: #ffffff;
+    --reader-surface-hover: #f4f2ec;
+    --reader-border: #e8e5dc;
+    --reader-text: #2a2826;
+    --reader-text-muted: #6e6b66;
+    --reader-heading: #141312;
+    --reader-accent: #ff6934;
+    --reader-accent-light: rgba(255, 105, 52, 0.12);
+    --reader-code-bg: #f4f1ea;
+  }
+
+  /* Sepia / Candlelight Antique Theme */
+  [data-theme="sepia"] {
+    --app-bg: #f4ecd8;
+    --app-surface: #ebe1c7;
+    --app-surface-hover: #e0d4b6;
+    --app-border: #d8cbab;
+    --app-text: #413222;
+    --app-text-muted: #75634d;
+    --app-continue-card: #2d2215;
+
+    --reader-bg: #f4ecd8;
+    --reader-surface: #ebe1c7;
+    --reader-surface-hover: #e0d4b6;
+    --reader-border: #d8cbab;
+    --reader-text: #413222;
+    --reader-text-muted: #75634d;
+    --reader-heading: #261b0f;
+    --reader-accent: #d9531e;
+    --reader-accent-light: rgba(217, 83, 30, 0.14);
+    --reader-code-bg: #e2d6b7;
+  }
+
+  /* Dark Obsidian Theme */
+  [data-theme="dark"] {
+    --app-bg: #0f1015;
+    --app-surface: #171821;
+    --app-surface-hover: #1f202b;
+    --app-border: #282a36;
+    --app-text: #f0f2f7;
+    --app-text-muted: #9ba3b5;
+    --app-continue-card: #15161d;
+
+    --reader-bg: #0f1015;
+    --reader-surface: #171821;
+    --reader-surface-hover: #1f202b;
+    --reader-border: #282a36;
+    --reader-text: #e2e8f0;
+    --reader-text-muted: #94a3b8;
+    --reader-heading: #ffffff;
+    --reader-accent: #ff6934;
+    --reader-accent-light: rgba(255, 105, 52, 0.18);
+    --reader-code-bg: #14151e;
+  }
+
+  /* Midnight OLED Theme */
+  [data-theme="midnight"] {
+    --app-bg: #000000;
+    --app-surface: #0a0a0d;
+    --app-surface-hover: #131317;
+    --app-border: #1e1e24;
+    --app-text: #ffffff;
+    --app-text-muted: #7c7c88;
+    --app-continue-card: #0a0a0d;
+
+    --reader-bg: #000000;
+    --reader-surface: #0a0a0d;
+    --reader-surface-hover: #131317;
+    --reader-border: #1e1e24;
+    --reader-text: #dcdce2;
+    --reader-text-muted: #71717a;
+    --reader-heading: #ffffff;
+    --reader-accent: #ff7543;
+    --reader-accent-light: rgba(255, 117, 67, 0.18);
+    --reader-code-bg: #09090c;
+  }
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--app-bg);
+  color: var(--app-text);
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(140, 140, 150, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(140, 140, 150, 0.45);
+}
+
+/* Typography styles */
+.font-book-sans {
+  font-family: var(--font-sans);
+}
+
+.font-book-serif {
+  font-family: var(--font-serif);
+}
+
+.font-book-mono {
+  font-family: var(--font-mono);
+}
+
+/* Spring / Bouncy Transitions */
+.bouncy-hover {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, background-color 0.2s ease;
+}
+
+.bouncy-hover:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.bouncy-hover:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+.bouncy-btn {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, background-color 0.2s ease;
+}
+
+.bouncy-btn:hover {
+  transform: scale(1.06);
+}
+
+.bouncy-btn:active {
+  transform: scale(0.95);
+}
+
+.bouncy-pill {
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.bouncy-pill:hover {
+  transform: scale(1.05);
+}
+
+.bouncy-pill:active {
+  transform: scale(0.96);
+}
+
+/* Psychologically pleasant reading prose */
+.prose-reader p {
+  margin-bottom: 1.5em;
+  line-height: inherit;
+}
+
+.prose-reader p:last-child {
+  margin-bottom: 0;
+}
+
+/* Subtle pulse / glow */
+@keyframes coral-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 105, 52, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(255, 105, 52, 0);
+  }
+}
+
+.pulse-coral {
+  animation: coral-pulse 2.5s infinite;
+}
